@@ -9,7 +9,7 @@ import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
 
 import { reducer } from "./redux";
-import { watcherSaga } from "./sagas";
+import rootSaga from "./sagas";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -22,7 +22,7 @@ let store = createStore(
   compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 );
 
-sagaMiddleware.run(watcherSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

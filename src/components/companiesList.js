@@ -1,5 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+
+import Company from "./company"
+import CompanyLink from "./companyLink"
 
 class CompaniesList extends Component {
   componentDidMount(){
@@ -11,7 +14,7 @@ class CompaniesList extends Component {
       return <p>No companies yet</p>
     }
     return companies.map(company => {
-      return <div className="company-link" key={company.id}>{company.name}</div>
+      return <CompanyLink company={company} key={company.id}/>
     });
   }
 
@@ -26,6 +29,9 @@ class CompaniesList extends Component {
           {fetching ? (<div>Loading...</div>) : ''}
 
           {error && <p style={{ color: "red" }}>Sorry, something went wrong!</p>}
+        
+          <h2>Chosen company</h2>
+          <Company/>
         </div>
     );
   }
@@ -41,7 +47,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRequest: () => dispatch({ type: "API_CALL_REQUEST" })
+    onRequest: () => dispatch({ type: "API_CALL_REQUEST" }),
+    chooseCompany: () => dispatch({ type: "CHOOSE_COMPANY" })
   };
 };
 

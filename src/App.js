@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import CompaniesList from "./components/companiesList"
+import { Route, NavLink, HashRouter } from "react-router-dom";
+
+import CompaniesList from "./components/companiesList";
+import Company from "./components/company";
 import "./App.css";
 
 class App extends Component {
@@ -10,7 +13,16 @@ class App extends Component {
         <header>
           <h1 className="title">Companies list</h1>
         </header>
-        <CompaniesList />
+        <HashRouter>
+          <div className="app">
+            <section className="content">
+              <Route path="" exact component={CompaniesList}/>
+              <Route path="/company/:id" component={Company}/>
+              {/* <Route path="/company/edit/{id}" component={EditCompany}/> */}
+            </section>
+          </div>
+        </HashRouter>
+        {this.props.children}
       </div>
     );
   }

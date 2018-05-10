@@ -1,6 +1,7 @@
 import { all, take, fork, call, put } from "redux-saga/effects";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import actionTypes from './constants'
 
 const companies = [
   { id: 1, name: 'Азалия', ogrn: "1053600591197", type: 'ИП', registration_date: '13.09.2015', active: true },
@@ -26,23 +27,23 @@ function fetchCompanies() {
 
 function* getCompaniesWatcher(){
   while(true){
-    yield take("API_CALL_REQUEST")
+    yield take(actionTypes.FETCH_COMPANIES_REQUEST)
     try {
       const response = yield call(fetchCompanies);
       const companies = response.data.companies;
-      yield put({ type: "API_CALL_SUCCESS", companies });
+      yield put({ type: actionTypes.FETCH_COMPANIES_SUCCESS, companies });
     } catch (error) {
-      yield put({ type: "API_CALL_FAILURE", error });
+      yield put({ type: actionTypes.FETCH_COMPANIES_FAILURE, error });
     }
   }
 }
 
 function* chooseCompanyWatcher(){
   while(true){
-    const action = yield take("CHOOSE_COMPANY");
+    const action = yield take(actionTypes.CHOOSE_COMPANY);
     console.log(action)
     const company = { id: 2, name: 'Иванов и Ко', ogrn: "1053656791197", type: 'ИП', registration_date: '23.04.2015', active: true }
-    yield put({ type: "CHOOSE_COMPANY_SUCCESS", company })
+    yield put({ type: actionTypes.CHOOSE_COMPANY_SUCCESS, company })
   }
 }
 

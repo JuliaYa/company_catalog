@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+
+import actionTypes from '../constants'
 
 class CompanyLink extends Component {
   chooseCompany = () => {
@@ -22,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    chooseCompany: (id) => dispatch({ type: "CHOOSE_COMPANY", payload: {id} })
+    chooseCompany: (id) => dispatch({ type: actionTypes.CHOOSE_COMPANY, payload: id })
   };
 };
 

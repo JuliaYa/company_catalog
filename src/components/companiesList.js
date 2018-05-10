@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
+import actionTypes from '../constants'
 import Company from "./company"
 import CompanyLink from "./companyLink"
 
 class CompaniesList extends Component {
   componentDidMount(){
-    this.props.onRequest(); //get data
+    this.props.fetchCompanies(); //get data
   };
 
   renderCompanies(companies){
@@ -47,8 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRequest: () => dispatch({ type: "API_CALL_REQUEST" }),
-    chooseCompany: () => dispatch({ type: "CHOOSE_COMPANY" })
+    fetchCompanies: () => dispatch({ type: actionTypes.FETCH_COMPANIES_REQUEST })
   };
 };
 

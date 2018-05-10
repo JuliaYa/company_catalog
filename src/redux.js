@@ -1,8 +1,4 @@
-const API_CALL_REQUEST = "API_CALL_REQUEST";
-const API_CALL_SUCCESS = "API_CALL_SUCCESS";
-const API_CALL_FAILURE = "API_CALL_FAILURE";
-const CHOOSE_COMPANY = "CHOOSE_COMPANY";
-const CHOOSE_COMPANY_SUCCESS = "CHOOSE_COMPANY_SUCCESS";
+import actionTypes from './constants'
 
 const initialState = {
   fetching: false,
@@ -13,19 +9,19 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case API_CALL_REQUEST:
+    case actionTypes.FETCH_COMPANIES_REQUEST:
       return { ...state, fetching: true, choosen_company: null, error: null };
       break;
-    case API_CALL_SUCCESS:
+    case actionTypes.FETCH_COMPANIES_SUCCESS:
       return { ...state, fetching: false, choosen_company: null, companies: action.companies };
       break;
-    case API_CALL_FAILURE:
+    case actionTypes.FETCH_COMPANIES_FAILURE:
       return { ...state, fetching: false, choosen_company: null, companies: null, error: action.error };
       break;
-    case CHOOSE_COMPANY:
+    case actionTypes.CHOOSE_COMPANY:
       return state;
       break;
-    case CHOOSE_COMPANY_SUCCESS:
+    case actionTypes.CHOOSE_COMPANY_SUCCESS:
       return { ...state, fetching: false, choosen_company: action.company, error: null}
       break;
     default:

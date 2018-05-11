@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 class Company extends Component {
   render(){
@@ -11,7 +12,8 @@ class Company extends Component {
 
     return(
       <div className="company">
-        <p>{company.type} {company.name}</p>
+        <NavLink to="">Back</NavLink>
+        <h2>{company.type} {company.name}</h2>
         <p>ОГРН: {company.ogrn}</p>
         <p>Дата регистрации: {company.registration_date}</p>
       </div>

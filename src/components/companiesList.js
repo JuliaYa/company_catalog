@@ -30,9 +30,6 @@ class CompaniesList extends Component {
           {fetching ? (<div>Loading...</div>) : ''}
 
           {error && <p style={{ color: "red" }}>Sorry, something went wrong!</p>}
-        
-          <h2>Chosen company</h2>
-          <Company/>
         </div>
     );
   }

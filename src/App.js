@@ -16,7 +16,7 @@ class App extends Component {
         <HashRouter>
           <div className="app">
             <section className="content">
-              <Route path="" exact component={CompaniesList}/>
+              <Route path="/" exact component={CompaniesList}/>
               <Route path="/company/:id" component={Company}/>
               {/* <Route path="/company/edit/{id}" component={EditCompany}/> */}
             </section>

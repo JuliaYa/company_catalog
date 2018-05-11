@@ -12,7 +12,7 @@ class CompanyLink extends Component {
     const { id, name } = this.props.company;
 
     return (<div className="company-link" onClick={this.chooseCompany}>
-              {name}
+              <a href={'#/company/' + id}>{name}</a>
             </div>)
   }
 }

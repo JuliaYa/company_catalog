@@ -5,6 +5,7 @@ const actionTypes = mirrorCreator([
   'FETCH_COMPANIES_SUCCESS',
   'FETCH_COMPANIES_FAILURE',
   'CHOOSE_COMPANY',
-  'CHOOSE_COMPANY_SUCCESS'
+  'CHOOSE_COMPANY_SUCCESS',
+  'FETCH_COMPANY_FAILURE'
 ]);
 export default actionTypes;

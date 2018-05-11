@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 
 import actionTypes from '../constants'
-import Company from "./company"
 import CompanyLink from "./companyLink"
 
 class CompaniesList extends Component {
@@ -11,7 +10,7 @@ class CompaniesList extends Component {
   };
 
   renderCompanies(companies){
-    if(companies.length == 0){
+    if(companies.length === 0){
       return <p>No companies yet</p>
     }
     return companies.map(company => {
@@ -20,7 +19,7 @@ class CompaniesList extends Component {
   }
 
   render(){
-    const { fetching, companies, onRequest, error } = this.props;
+    const { fetching, companies, error } = this.props;
     console.log(this.props);
 
     return (

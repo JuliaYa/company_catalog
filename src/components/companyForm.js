@@ -32,7 +32,6 @@ let CompanyForm = props => {
 }
 
 CompanyForm = reduxForm({
-  // a unique name for the form
   form: 'company'
 })(CompanyForm)
 

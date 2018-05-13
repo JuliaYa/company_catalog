@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
 
-import { reducer } from "./redux";
+
+import { reducer as form } from 'redux-form'
+import { reducer as mainReducer } from "./redux";
+
 import rootSaga from "./sagas";
 
 
@@ -17,8 +20,10 @@ const sagaMiddleware = createSagaMiddleware();
 const reduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
+const reducers = combineReducers({mainReducer, form})
+  
 let store = createStore(
-  reducer,
+  reducers,
   compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 );
 

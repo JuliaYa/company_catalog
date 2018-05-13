@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import actionTypes from "../constants"
+import CompanyForm from "./companyForm"
 
 class EditCompany extends Component {
   componentDidMount(){
     const id = this.props.location.pathname.split('/')[3];
     this.props.fetchCompany(id); //get data
+  };
+
+  saveData = (values) => {
+    console.log(values)
   };
   
   render(){
@@ -26,7 +31,7 @@ class EditCompany extends Component {
       <div>
         <NavLink to={backUrl}>Back</NavLink>
         <h2>Edit company</h2>
-        <p>FORM</p>
+        <CompanyForm onSubmit={this.saveData}/>
       </div>
     )
   }
@@ -34,9 +39,9 @@ class EditCompany extends Component {
 
 const mapStateToProps = state => {
   return {
-    fetching: state.fetching,
-    error: state.error,
-    company: state.choosen_company
+    fetching: state.mainReducer.fetching,
+    error: state.mainReducer.error,
+    company: state.mainReducer.choosen_company
   };
 };
 

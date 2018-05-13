@@ -35,9 +35,9 @@ class CompaniesList extends Component {
 
 const mapStateToProps = state => {
   return {
-    fetching: state.fetching,
-    companies: state.companies,
-    error: state.error
+    fetching: state.mainReducer.fetching,
+    companies: state.mainReducer.companies,
+    error: state.mainReducer.error
   };
 };
 

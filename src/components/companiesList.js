@@ -20,7 +20,6 @@ class CompaniesList extends Component {
 
   render(){
     const { fetching, companies, error } = this.props;
-    console.log(this.props);
 
     return (
         <div className="companies-list">

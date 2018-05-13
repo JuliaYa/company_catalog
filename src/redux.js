@@ -16,7 +16,7 @@ export function reducer(state = initialState, action) {
     case actionTypes.FETCH_COMPANIES_FAILURE:
       return { ...state, fetching: false, choosen_company: null, companies: null, error: action.error };
     case actionTypes.CHOOSE_COMPANY:
-      return state;
+      return { ...state, fetching: true, choosen_company: null, error: null };
     case actionTypes.CHOOSE_COMPANY_SUCCESS:
       return { ...state, fetching: false, choosen_company: action.company, error: null}
     case actionTypes.FETCH_COMPANY_FAILURE:

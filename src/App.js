@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, HashRouter } from "react-router-dom";
 
 import CompaniesList from "./components/companiesList";
-import Company from "./components/company";
+import ShowCompany from "./components/show";
 import "./App.css";
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
           <div className="app">
             <section className="content">
               <Route path="/" exact component={CompaniesList}/>
-              <Route path="/company/:id" component={Company}/>
+              <Route path="/company/:id" component={ShowCompany}/>
               {/* <Route path="/company/edit/{id}" component={EditCompany}/> */}
             </section>
           </div>

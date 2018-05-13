@@ -22,9 +22,12 @@ class ShowCompany extends Component {
      return <p style={{ color: "red" }}>Sorry, something went wrong!</p>
     }
 
+    const editUrl = `/company/edit/${company.id}`
     return(
       <div>
         <NavLink to="/">Back</NavLink>
+        &nbsp;
+        <NavLink to={editUrl}>Edit</NavLink>
         <Company company={company} />
       </div>
     )

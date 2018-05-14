@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import actionTypes from "../constants"
 import CompanyForm from "./companyForm"
+import Company from "./company"
 
 class EditCompany extends Component {
   componentDidMount(){
@@ -12,7 +13,10 @@ class EditCompany extends Component {
   };
 
   saveData = (values) => {
+    let updCompany = values;
+    updCompany.id = this.props.company.id
     console.log(values)
+    this.props.updateCompany(updCompany)
   };
   
   render(){
@@ -31,7 +35,9 @@ class EditCompany extends Component {
       <div>
         <NavLink to={backUrl}>Back</NavLink>
         <h2>Edit company</h2>
-        <CompanyForm onSubmit={this.saveData}/>
+        <CompanyForm onSubmit={this.saveData} company={company}/>
+        <h3>Company card view</h3>
+        <Company company={company} />
       </div>
     )
   }
@@ -47,7 +53,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCompany: (id) => dispatch({ type: actionTypes.FETCH_COMPANY, payload: id })
+    fetchCompany: (id) => dispatch({ type: actionTypes.FETCH_COMPANY, payload: id }),
+    updateCompany: (company) => dispatch({ type: actionTypes.UPDATE_COMPANY, payload: company})
   };
 };
 

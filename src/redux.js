@@ -18,9 +18,15 @@ export function reducer(state = initialState, action) {
     case actionTypes.FETCH_COMPANY:
       return { ...state, fetching: true, company: null, error: null };
     case actionTypes.FETCH_COMPANY_SUCCESS:
-      return { ...state, fetching: false, company: action.company, error: null}
+      return { ...state, fetching: false, company: action.company, error: null }
     case actionTypes.FETCH_COMPANY_FAILURE:
-      return { ...state, fetching: false, company: null, error: action.error}
+      return { ...state, fetching: false, company: null, error: action.error }
+    case actionTypes.UPDATE_COMPANY:
+      return state
+    case actionTypes.UPDATE_COMPANY_SUCCESS:
+      return { ...state, company: action.company }
+    case actionTypes.UPDATE_COMPANY_FALURE:
+      return { ...state, error: action.error }
     default:
       return state;
   }

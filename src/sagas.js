@@ -24,6 +24,12 @@ mock.onGet(/\/company\/\d+/).reply(config => {
   return [200, {company: company}]
 })
 
+mock.onPatch(/\/company\/\d+/).reply(config => {
+  const company = JSON.parse(config.data)
+  console.log(company)
+  return [200, {company: company}]
+})
+
 function fetchCompanies(){
   return axios({
     method: "get",
@@ -34,8 +40,16 @@ function fetchCompanies(){
 function fetchCompany(id){
   return axios({
     method: "get",
-    url:"/company/" + id
+    url: "/company/" + id
   });
+}
+
+function updateCompany(company){
+  return axios({
+    method: "patch",
+    data: company,
+    url: "/company/" + company.id
+  })
 }
 
 /*-----*/
@@ -66,9 +80,23 @@ function* fetchCompanyWatcher(){
   }
 }
 
+function* updateCompsnyWatcher(){
+  while(true){
+    const action = yield take(actionTypes.UPDATE_COMPANY)
+    try{
+      const response = yield call(updateCompany, action.payload)
+      const company = response.data.company
+      yield put({ type: actionTypes.UPDATE_COMPANY_SUCCESS, company })
+    } catch(error){
+      yield put({ type: actionTypes.UPDATE_COMPANY_FAILRE, error })
+    }
+  }
+}
+
 export default function* root() {
   yield all([
     fork(getCompaniesWatcher),
-    fork(fetchCompanyWatcher)
+    fork(fetchCompanyWatcher),
+    fork(updateCompsnyWatcher)
   ])
 }

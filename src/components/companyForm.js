@@ -21,7 +21,7 @@ let CompanyForm = props => {
       </div>
       <div>
         <label htmlFor="ogrn">ОГРН:</label>
-        <Field name="ogrn" component="input" type="text" />
+        <Field name="ogrn" component="input" type="number" />
       </div>
       <div>
         <label>Дата регистрации:</label>

@@ -53,13 +53,13 @@ function* getCompaniesWatcher(){
   }
 }
 
-function* chooseCompanyWatcher(){
+function* fetchCompanyWatcher(){
   while(true){
-    const action = yield take(actionTypes.CHOOSE_COMPANY)
+    const action = yield take(actionTypes.FETCH_COMPANY)
     try{
       const response = yield call(fetchCompany, action.payload)
       const company = response.data.company
-      yield put({ type: actionTypes.CHOOSE_COMPANY_SUCCESS, company })
+      yield put({ type: actionTypes.FETCH_COMPANY_SUCCESS, company })
     } catch(error){
       yield put({ type: actionTypes.FETCH_COMPANY_FAILURE, error })
     }
@@ -69,6 +69,6 @@ function* chooseCompanyWatcher(){
 export default function* root() {
   yield all([
     fork(getCompaniesWatcher),
-    fork(chooseCompanyWatcher)
+    fork(fetchCompanyWatcher)
   ])
 }

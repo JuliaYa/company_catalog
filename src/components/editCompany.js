@@ -41,13 +41,13 @@ const mapStateToProps = state => {
   return {
     fetching: state.mainReducer.fetching,
     error: state.mainReducer.error,
-    company: state.mainReducer.choosen_company
+    company: state.mainReducer.company
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCompany: (id) => dispatch({ type: actionTypes.CHOOSE_COMPANY, payload: id })
+    fetchCompany: (id) => dispatch({ type: actionTypes.FETCH_COMPANY, payload: id })
   };
 };
 

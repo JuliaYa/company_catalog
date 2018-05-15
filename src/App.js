@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="main">
         <header>
-          <h1 className="title">Companies list</h1>
+          <h1 className="title">Companies list app</h1>
         </header>
         <HashRouter>
           <div className="app">

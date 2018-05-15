@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form'
 import DateTime from 'react-datetime';
 
 
-
 class CompanyForm extends Component{
 
   renderDateTime = ({input}) => (
@@ -18,29 +17,33 @@ class CompanyForm extends Component{
     const { handleSubmit } = this.props
     return (
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='form-control'>
           <label htmlFor="name">Название компании:</label>
           <Field name="name" component="input" type="text"/>
         </div>
-        <div>
+        <div className='form-control'>
           <label htmlFor="type">Тип организации:</label>
           <Field name="type" component="select">
-            <option />
             <option value="OOO">ООО</option>
             <option value="ИП">ИП</option>
             <option value="ОАО">ОАО</option>
             <option value="ЗАО">ЗАО</option>
           </Field>
         </div>
-        <div>
+        <div className='form-control'>
+          <label htmlFor="active">Активна:</label>
+          <Field name="active" component="input" type="checkbox" />
+        </div>
+        <div className='form-control'>
           <label htmlFor="ogrn">ОГРН:</label>
           <Field name="ogrn" component="input" type="number" />
         </div>
-        <div>
+        <div className='form-control'>
           <label>Дата регистрации:</label>
           <Field name="registration_date" component={this.renderDateTime}/>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Сохранить</button>
+        <p>После сохранения данные в карточке кампании обновяться</p>
       </form>
     )
   }

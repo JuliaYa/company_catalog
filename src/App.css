@@ -10,3 +10,11 @@
 .companies-list .company-link{
   margin-bottom: 8px;
 }
+
+.form-control{
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.form-control label{
+  margin-right: 8px;
+}

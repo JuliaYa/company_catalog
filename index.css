@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1, h3{
+  color: red;
+  text-align: center;
+}
+
+.main{
+  width: 50%;
+  margin: 0 auto;
+  background-color: azure;
+}
+.app{
+  padding: 24px;
+}
+.companies-list{
+  font-size: 16px;
+  padding: 24px;
+}
+.companies-list .company-link{
+  margin-bottom: 8px;
+}
+
+.form-control{
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.form-control label{
+  margin-right: 8px;
+}
+.form-control input, .form-control select{
+  font-size: 16px;
+}

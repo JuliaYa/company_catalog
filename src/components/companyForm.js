@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import DateTime from 'react-datetime';
+import DateTime from 'react-datetime'
 
 
 class CompanyForm extends Component{

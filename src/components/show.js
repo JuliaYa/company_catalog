@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { NavLink } from "react-router-dom"
 
 import actionTypes from "../constants"
 import Company from "./company"
 
 class ShowCompany extends Component {
   componentDidMount(){
-    const id = this.props.location.pathname.split('/')[2];
-    this.props.fetchCompany(id); //get data
+    const id = this.props.location.pathname.split('/')[2]
+    this.props.fetchCompany(id) //get data
   };
   
   render(){
-    const { fetching, company, error } = this.props;
+    const { fetching, company, error } = this.props
     
     if(!company || fetching){
       return <p>Loading...</p>

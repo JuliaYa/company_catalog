@@ -15,7 +15,6 @@ class EditCompany extends Component {
   saveData = (values) => {
     let updCompany = values;
     updCompany.id = this.props.company.id
-    console.log(values)
     this.props.updateCompany(updCompany)
   };
   

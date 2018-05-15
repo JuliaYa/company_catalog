@@ -35,7 +35,7 @@ class EditCompany extends Component {
       <div>
         <NavLink to={backUrl}>Back</NavLink>
         <h2>Edit company</h2>
-        <CompanyForm onSubmit={this.saveData} company={company}/>
+        <CompanyForm onSubmit={this.saveData} initialValues={company}/>
         <h3>Company card view</h3>
         <Company company={company} />
       </div>

@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+import DateTime from 'react-datetime';
+
+
+
 class CompanyForm extends Component{
-  componentWillMount() {
-    this.props.initialize(this.props.company);
-  }
+
+  renderDateTime = ({input}) => (
+    <DateTime 
+      dateFormat="DD MMM YYYY"
+      timeFormat={false}
+      {...input}
+    />)
 
   render(){
     const { handleSubmit } = this.props
@@ -30,6 +38,7 @@ class CompanyForm extends Component{
         </div>
         <div>
           <label>Дата регистрации:</label>
+          <Field name="registration_date" component={this.renderDateTime}/>
         </div>
         <button type="submit">Submit</button>
       </form>

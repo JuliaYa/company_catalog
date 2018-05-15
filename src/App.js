@@ -4,7 +4,6 @@ import { Route, HashRouter } from "react-router-dom";
 import CompaniesList from "./components/companiesList";
 import ShowCompany from "./components/show";
 import EditCompany from "./components/editCompany";
-import "./App.css";
 
 class App extends Component {
 

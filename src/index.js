@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
@@ -14,6 +13,7 @@ import { reducer as mainReducer } from "./redux";
 
 import rootSaga from "./sagas";
 
+import "./App.css";
 
 const sagaMiddleware = createSagaMiddleware();
 

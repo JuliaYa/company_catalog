@@ -6,6 +6,7 @@
 
 # production
 /dist
+/examples
 
 .DS_Store
 
